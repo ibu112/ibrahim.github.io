@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Portfolio</title>
+    <style>
+      /* styles.css */
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        position: relative;
+      }
+
+      header img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      header h1 {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        font-size: 3em;
+        margin: 0;
+      }
+
+      header h2 {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        color: white;
+        font-size: 1.5em;
+        margin: 0;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        flex-grow: 1;
+      }
+
+      nav a {
+        display: block;
+        text-align: center;
+        padding: 1em;
+        background-color: #333;
+        color: white;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        background-color: #555;
+      }
+
+      main {
+          max-width:800px;
+          margin:auto
+      }
+
+      section {
+          padding-top:2em
+      }
+      
+      .social-icons {
+          position:absolute; 
+          top:20px; 
+          right:20px
+      }
+      
+      .social-icons a {
+          display:inline-block; 
+          margin-right:.5em
+      }
+      
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <header>
+      <img src="cover-title2.jpg" alt="My Image">
+      <h1>Mohamed ibrahim</h1>
+      <h2>Certified Data Analyst</h2>
+    </header>
+
+    <main>
+    
+    <div class="social-icons">
+       <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="32" alt="LinkedIn"></a> 
+       <a href="mailto:your-email@example.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="32" alt="Email"></a> 
+    </div>
+
+    
+      <section id="about">
+        <!-- About content goes here -->
+      </section>
+      <section id="skills">
+        <!-- Skills content goes here -->
+      </section>
+      <section id="resume">
+        <!-- Resume content goes here -->
+      </section>
+      <section id="portfolio">
+        <!-- Portfolio content goes here -->
+      </section>
+      <section id="contact">
+        <!-- Contact content goes here -->
+      </section>
+    </main>
+
+    <script>
+    // script.js
+
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const target = document.querySelector(event.target.hash);
+            target.scrollIntoView({ behavior: 'smooth' });
+            
+            // Add class to target element
+            target.classList.add('highlight');
+            
+            // Remove class after animation completes
+            setTimeout(() => {
+                target.classList.remove('highlight');
+            }, 1500);
+            
+            // Add CSS transition to target element
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .highlight {
+                    animation-name: highlight-fade;
+                    animation-duration: 1.5s; 
+                }
+                
+                @keyframes highlight-fade {
+                    from { background-color:#f7e319; }
+                    to { background-color:#fff; }
+                }
+            `;
+            document.head.appendChild(style);
